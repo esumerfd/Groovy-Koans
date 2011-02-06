@@ -2,7 +2,7 @@ package org.bitbashers.koans
 
 println "Path to Enlightment"
 
-new File(".").eachFileMatch(~/About.groovy/) { koan ->
+new File(".").eachFileMatch(~/About.*\.groovy/) { koan ->
     println "Running Koan ${koan}"
     def process = "groovy ${koan}".execute()
     def output = process.text

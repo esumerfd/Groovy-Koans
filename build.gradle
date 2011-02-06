@@ -1,0 +1,5 @@
+defaultTasks "test"
+
+task "test" << {
+  println "groovy org/bitbashers/koans/PathToEnlightenmant.groovy".execute().text
+}

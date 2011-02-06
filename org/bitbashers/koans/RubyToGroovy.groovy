@@ -4,7 +4,6 @@ new File(rubyKoansDir).eachFileMatch(~/about_arrays\.rb/) { ruby ->
 
     System.err.println "Converting Ruby Koan ${ruby}"
     System.err.println "NOT A COMPLETE CONVERSION. Follow the following steps to complete the job manually"
-    System.err.println "- Add 'def' infront of local variables"
 
     def context = [:]
     context["initialized"] = []
@@ -26,6 +25,7 @@ new File(rubyKoansDir).eachFileMatch(~/about_arrays\.rb/) { ruby ->
         match << [/def (.*)/:            { line, regex -> 
             context["start_of_method"] = true
             context["open_brace"] = 0
+            context["initialized"] = []
             line.replaceAll(regex, 'void $1() {')
           }
         ]

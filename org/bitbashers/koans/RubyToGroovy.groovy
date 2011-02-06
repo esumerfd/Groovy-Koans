@@ -1,6 +1,8 @@
 rubyKoansDir = "/Users/esumerfd/Edward/Projects/BitBashers/Ruby/ruby_koans"
 
-new File(rubyKoansDir).eachFileMatch(~/about_arrays\.rb/) { ruby ->
+aboutFile = args[0]
+
+new File(rubyKoansDir).eachFileMatch(~/${aboutFile}\.rb/) { ruby ->
 
     System.err.println "Converting Ruby Koan ${ruby}"
     System.err.println "NOT A COMPLETE CONVERSION. Follow the following steps to complete the job manually"

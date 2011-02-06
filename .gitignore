@@ -1,2 +1,3 @@
 .gradle
 utils/cache
+.rvmrc

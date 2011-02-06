@@ -8,7 +8,7 @@ class AboutArrays extends Koans {
   }
 
   void test_array_literals() {
-    array = []
+    def array = []
     assertEquals( [], array )
 
     array[0] = 1
@@ -22,7 +22,7 @@ class AboutArrays extends Koans {
   }
 
   void test_accessing_array_elements() {
-    array = ["peanut", "butter", "and", "jelly"]
+    def array = ["peanut", "butter", "and", "jelly"]
 
     assertEquals( __, array[0] )
     assertEquals( __, array.first )
@@ -33,7 +33,7 @@ class AboutArrays extends Koans {
   }
 
   void test_slicing_arrays() {
-    array = ["peanut", "butter", "and", "jelly"]
+    def array = ["peanut", "butter", "and", "jelly"]
 
     assertEquals( __, array[0,1] )
     assertEquals( __, array[0,2] )
@@ -60,7 +60,7 @@ class AboutArrays extends Koans {
   }
 
   void test_pushing_and_popping_arrays() {
-    array = [1,2]
+    def array = [1,2]
     array.push("last")
 
     assertEquals( __, array )
@@ -71,12 +71,12 @@ class AboutArrays extends Koans {
   }
 
   void test_shifting_arrays() {
-    array = [1,2]
+    def array = [1,2]
     array.unshift("first")
 
     assertEquals( __, array )
 
-    shifted_value = array.shift
+    def shifted_value = array.shift
     assertEquals( __, shifted_value )
     assertEquals( __, array )
   }

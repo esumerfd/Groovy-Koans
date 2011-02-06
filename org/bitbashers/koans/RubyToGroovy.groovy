@@ -12,7 +12,7 @@ new File(rubyKoansDir).eachFileMatch(~/${aboutFile}\.rb/) { ruby ->
 
     ruby.eachLine { rubyLine ->
 
-        def variables = ["empty_array", "array"]
+        def variables = ["empty_array", "array", "shifted_value"]
 
         def match = [:]
         match << [/#.*env ruby/:         { line, regex -> } ]
@@ -44,12 +44,16 @@ new File(rubyKoansDir).eachFileMatch(~/${aboutFile}\.rb/) { ruby ->
 
         // CHECK FOR VARIABLES AND INITIALIZE THEM IF NECESSARY
         match << [/^.*$/:                { line, regex -> 
-            variables.each { name ->
-
-                if (line.contains(name) && !context["initialized"].contains(name)) {
-                    context["initialized"] << name
-                    line = line.replaceAll(" (${name}) ", ' def $1 ')
+            def name = variables.find { name ->
+                def foundName = null
+                if (line.contains(name) && !context["initialized"].contains(name) && context["open_brace"] > 0) {
+                    foundName = name
                 }
+                foundName
+            }
+            if (name) {
+                context["initialized"] << name
+                line = line.replaceAll(" (${name}) ", ' def $1 ')
             }
             line
           } 

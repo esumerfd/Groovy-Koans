@@ -71,6 +71,13 @@ new File(rubyKoansDir).eachFileMatch(~/${aboutFile}\.rb/) { ruby ->
           }
         ]
 
+        // OPERATORS
+        match << [/\.\.\./:               { line, regex -> line.replaceAll(regex, "..<") } ]
+
+        // CORE RUBY METHODS
+        match << [/\.first /:             { line, regex -> line.replaceAll(regex, '.first() '}]
+        match << [/\.last /:             { line, regex -> line.replaceAll(regex, '.last() '}]
+
         // CONVERT TEST UNIT ASSERT NAMES
         match << [/ assert_equal *(.*) */:{ line, regex -> line.replaceAll(regex, ' assertEquals( $1 )') } ]
         match << [/ assert_not_equal *(.*) */:{ line, regex -> line.replaceAll(regex, ' assertNotEquals( $1 )') } ]

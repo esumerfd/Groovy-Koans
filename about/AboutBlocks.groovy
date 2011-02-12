@@ -1,7 +1,7 @@
 import org.bitbashers.koans.*
 
 class AboutBlocks extends Koans {
-  void method_with_block(closure) {
+  def method_with_block(closure) {
     def result  = closure()
     result
   }
@@ -18,7 +18,7 @@ class AboutBlocks extends Koans {
 
   // ------------------------------------------------------------------
 
-  void method_with_block_arguments(closure) {
+  def method_with_block_arguments(closure) {
      closure("Jim")
   }
 
@@ -45,7 +45,7 @@ class AboutBlocks extends Koans {
 
   // ------------------------------------------------------------------
 
-  void yield_tester() {
+  def yield_tester(closure) {
     if (closure) {
       closure()
     } else {
@@ -55,7 +55,7 @@ class AboutBlocks extends Koans {
 
   void test_methods_can_see_if_they_have_been_called_with_a_block() {
     assertEquals( __, yield_tester { "with_block" } )
-    assertEquals( __, yield_tester )
+    assertEquals( __, yield_tester(null) )
   }
 
   // ------------------------------------------------------------------
@@ -71,11 +71,11 @@ class AboutBlocks extends Koans {
     assertEquals( __, add_one.call(10) )
 
     // Alternative calling sequence
-    assertEquals( __, add_one[10] )
+    assertEquals( __, add_one(10) )
   }
 
   void test_stand_alone_blocks_can_be_passed_to_methods_expecting_blocks() {
-    def make_upper  = { n -> n.upcase }
+    def make_upper  = { n -> n.toUpperCase() }
     def result  = method_with_block_arguments(make_upper)
     assertEquals( __, result )
   }
@@ -92,5 +92,4 @@ class AboutBlocks extends Koans {
     def add_one  = { n -> n + 1 }
     assertEquals( __, method_with_explicit_block(add_one) )
   }
-
  }

@@ -1,6 +1,3 @@
-
-
-
 import org.bitbashers.koans.*
 
 class AboutAsserts extends Koans {

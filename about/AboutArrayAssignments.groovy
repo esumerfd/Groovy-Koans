@@ -8,13 +8,13 @@ class ArrayAssignmentKoans extends Koans {
   }
 
   void test_parallel_assignments() {
-    def first_name, last_name = ["John", "Smith"]
+    def (first_name, last_name) = ["John", "Smith"]
     assertEquals __, first_name
     assertEquals __, last_name
   }
 
   void test_parallel_assignments_with_extra_values() {
-    def first_name, last_name = ["John", "Smith", "III"]
+    def (first_name, last_name) = ["John", "Smith", "III"]
     assertEquals __, first_name
     assertEquals __, last_name
   }
@@ -26,13 +26,13 @@ class ArrayAssignmentKoans extends Koans {
 //   }
 
   void test_parallel_assignments_with_too_few_variables() {
-    def first_name, last_name = ["Cher"]
+    def (first_name, last_name) = ["Cher"]
     assertEquals __, first_name
     assertEquals __, last_name
   }
 
   void test_parallel_assignments_with_subarrays() {
-    def first_name, last_name = [["Willie", "Rae"], "Johnson"]
+    def (first_name, last_name) = [["Willie", "Rae"], "Johnson"]
     assertEquals __, first_name
     assertEquals __, last_name
   }
